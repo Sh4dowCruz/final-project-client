@@ -19,7 +19,10 @@ class NewStudentContainer extends Component {
     super(props);
     this.state = {
       firstname: "", 
-      lastname: "", 
+      lastname: "",
+      email:"",
+      imageUrl: "", 
+      gpa: "",
       campusId: null, 
       redirect: false, 
       redirectId: null
@@ -40,21 +43,36 @@ class NewStudentContainer extends Component {
     let student = {
         firstname: this.state.firstname,
         lastname: this.state.lastname,
+        email: this.state.email,
+        imageUrl: this.state.imageUrl,
+        gpa: this.state.gpa,
         campusId: this.state.campusId
     };
     
+    console.log("Submitting student:", student);
+
+    try {
     // Add new student in back-end database
     let newStudent = await this.props.addStudent(student);
+
+    console.log("Created student:", newStudent);
 
     // Update state, and trigger redirect to show the new student
     this.setState({
       firstname: "", 
       lastname: "", 
+      email: "", 
+      imageUrl: "", 
+      gpa: "", 
       campusId: null, 
       redirect: true, 
       redirectId: newStudent.id
     });
+    } catch (error) {
+    console.error("Error adding student:", error);
+    alert("Submission failed! Check console for details.");
   }
+  };
 
   // Unmount when the component is being removed from the DOM:
   componentWillUnmount() {
