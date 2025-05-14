@@ -22,27 +22,49 @@ const AllStudentsView = (props) => {
   
   // If there is at least one student, render All Students view 
   return (
-    <div>
-      <h1>All Students</h1>
+    <div style={{ backgroundColor: "#dbeaf1", padding: "30px" }}>
+      <h1 style={{ color: "#1c2372", textAlign: "center" }}>All Students</h1>
 
-      {students.map((student) => {
-          let name = student.firstname + " " + student.lastname;
-          return (
-            <div key={student.id}>
-              <Link to={`/student/${student.id}`}>
-                <h2>{name}</h2>
-              </Link>
-              <button onClick={() => deleteStudent(student.id)}>Delete</button>
-              <hr/>
-            </div>
-          );
-        }
-      )}
-      <br/>
-      <Link to={`/newstudent`}>
-        <button>Add New Student</button>
-      </Link>
-      <br/><br/>
+      {students.map((student) => (
+        <div
+          key={student.id}
+          style={{
+            backgroundColor: "white",
+            padding: "20px",
+            margin: "20px auto",
+            borderRadius: "10px",
+            width: "500px",
+            textAlign: "center",
+            boxShadow: "0 0 5px rgba(0, 0, 0, 0.1)"
+          }}
+        >
+          <h2>
+            <Link to={`/student/${student.id}`} style={{ color: "#2e087b", textDecoration: "underline" }}>
+              {student.firstname} {student.lastname}
+            </Link>
+          </h2>
+
+          <img
+            src={student.imageUrl}
+            alt="student"
+            width="120"
+            height="120"
+            style={{ borderRadius: "50%", margin: "10px 0" }}
+          />
+          <p>
+            <strong>Attends:</strong>{" "}
+            <Link to={`/campus/${student.campusId}`}>
+              {student.campus?.name}
+            </Link>
+          </p>
+        </div>
+      ))}
+
+      <div style={{ textAlign: "center", marginTop: "30px" }}>
+        <Link to="/newstudent">
+          <button>Add New Student</button>
+        </Link>
+      </div>
     </div>
   );
 };
