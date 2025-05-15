@@ -30,12 +30,12 @@ const EditCampusView = ({ campus, handleSubmit }) => {
 
         <div style={{ marginBottom: "15px" }}>
           <label>Description:</label><br />
-          <textarea name="description" defaultValue={campus.description} rows="3" style={{ width: "100%" }} />
+          <textarea name="description" defaultValue={campus.description} rows="3" style={{ width: "100%" }} required/>
         </div>
 
         <div style={{ marginBottom: "20px" }}>
           <label>Image URL:</label><br />
-          <input type="text" name="imageUrl" defaultValue={campus.imageUrl} />
+          <input type="text" name="imageUrl" defaultValue={campus.imageUrl} required/>
         </div>
 
         <button

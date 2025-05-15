@@ -35,12 +35,12 @@ const EditStudentView = ({ student, handleSubmit }) => {
 
         <div style={{ marginBottom: "15px" }}>
           <label>Image URL:</label><br />
-          <input type="text" name="imageUrl" defaultValue={student.imageUrl} />
+          <input type="text" name="imageUrl" defaultValue={student.imageUrl} required/>
         </div>
 
         <div style={{ marginBottom: "15px" }}>
           <label>GPA:</label><br />
-          <input type="number" step="0.1" min="0" max="4" name="gpa" defaultValue={student.gpa} />
+          <input type="number" step="0.1" min="0" max="4" name="gpa" defaultValue={student.gpa} required/>
         </div>
 
         <div style={{ marginBottom: "20px" }}>
@@ -48,7 +48,7 @@ const EditStudentView = ({ student, handleSubmit }) => {
             <input
                 type="number"
                 name="campusId"
-                defaultValue={student.campusId}
+                defaultValue={student.campusId} 
             />
         </div>
 

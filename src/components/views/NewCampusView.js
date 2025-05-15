@@ -39,10 +39,10 @@ const NewCampusView = (props) => {
           <input type="text" name="address" onChange={handleChange} required /><br/><br/>
 
           <label style={{color:'#11153e', fontWeight: 'bold'}}>Description: </label>
-          <input type="text" name="description" onChange={handleChange} /><br/><br/>
+          <input type="text" name="description" onChange={handleChange} required/><br/><br/>
 
           <label style={{color:'#11153e', fontWeight: 'bold'}}>Image URL: </label>
-          <input type="text" name="imageUrl" onChange={handleChange} /><br/><br/>
+          <input type="text" name="imageUrl" onChange={handleChange} required /><br/><br/>
 
           <Button variant="contained" color="primary" type="submit">Submit</Button><br/><br/>
         </form>

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 // Take in props data to construct the component
 const CampusView = (props) => {
-  const { campus, deleteCampus } = props;
+  const { campus, deleteCampus, unenrollStudent } = props;
   
   // Render a single Campus view with list of its students
   return (
@@ -60,21 +60,59 @@ const CampusView = (props) => {
       </div>
 
       {campus.students.length === 0 ? (
-        <p style={{ fontSize: "16px", marginTop: "30px" }}>
-          There are no students enrolled currently.
-        </p>
+        <p>There are no students enrolled currently.</p>
       ) : (
-        <div style={{ marginTop: "30px" }}>
+        <div>
           <h3>Students Enrolled:</h3>
-          {campus.students.map((student) => (
-            <div key={student.id}>
-              <Link to={`/student/${student.id}`}>
-                {student.firstname} {student.lastname}
-              </Link>
-            </div>
-          ))}
+          <table style={{ margin: "0 auto", borderCollapse: "collapse" }}>
+            <thead>
+              <tr>
+                <th style={{ border: "1px solid black", padding: "8px" }}>Student Name</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {campus.students.map((student) => (
+                <tr key={student.id}>
+                  <td style={{ border: "1px solid black", padding: "8px" }}>
+                    <Link to={`/student/${student.id}`}>{student.firstname} {student.lastname}</Link>
+                  </td>
+                  <td style={{ textAlign: "center" }}>
+                    <button
+                      onClick={() => unenrollStudent(student.id)}
+                      style={{
+                        backgroundColor: "#ccc",
+                        padding: "6px 10px",
+                        borderRadius: "6px",
+                        fontWeight: "bold",
+                        cursor: "pointer"
+                      }}
+                    >
+                      Unenroll
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       )}
+
+      <div style={{ textAlign: "center", marginTop: "20px" }}>
+        <Link to="/newstudent">
+          <button
+            style={{
+              backgroundColor: "#ddd",
+              fontWeight: "bold",
+              padding: "10px 20px",
+              borderRadius: "6px",
+              cursor: "pointer"
+            }}
+          >
+            Enroll New Student
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };
