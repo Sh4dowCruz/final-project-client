@@ -46,9 +46,9 @@ const AllCampusesView = (props) => {
 
           <h4>Campus ID: {campus.id}</h4>
 
-          {campus.imageURL && (
+          {campus.imageUrl && (
             <img
-              src={campus.imageURL}
+              src={campus.imageUrl}
               alt="campus"
               width="300"
               height="180"
