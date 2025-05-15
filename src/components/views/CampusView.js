@@ -17,9 +17,9 @@ const CampusView = (props) => {
         {campus.name}
       </h1>
 
-      {campus.imageURL && (
+      {campus.imageUrl && (
         <img
-          src={campus.imageURL}
+          src={campus.imageUrl}
           alt={campus.name}
           style={{ width: "300px", height: "180px", borderRadius: "8px" }}
         />
