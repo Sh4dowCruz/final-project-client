@@ -29,7 +29,7 @@ class NewCampusContainer extends Component {
       name: this.state.name,
       address: this.state.address,
       description: this.state.description,
-      imageURL: this.state.imageUrl
+      imageUrl: this.state.imageUrl
     };
     try {
       let newCampus = await this.props.addCampus(campus);
