@@ -25,7 +25,7 @@ const AllCampusesView = (props) => {
     <div style={{ backgroundColor: "#dbeaf1", padding: "30px" }}>
       <h1 style={{ color: "#1c2372", textAlign: "center" }}>All Campuses</h1>
 
-      {allCampuses.map((campus) => (
+      {[...allCampuses].sort((a, b) => a.id - b.id).map((campus) => (
         <div
           key={campus.id}
           style={{
@@ -46,9 +46,9 @@ const AllCampusesView = (props) => {
 
           <h4>Campus ID: {campus.id}</h4>
 
-          {campus.imageUrl && (
+          {campus.imageURL && (
             <img
-              src={campus.imageUrl}
+              src={campus.imageURL}
               alt="campus"
               width="300"
               height="180"
