@@ -66,6 +66,11 @@ const NewStudentView = (props) => {
             <br/>
             <br/>
 
+            <p style={{ fontSize: "13px", color: "#555", marginTop: "4px" }}>
+              Refer to the <a href="/campuses" style={{ color: "#1c2372", textDecoration: "underline" }} target="_blank" rel="noopener noreferrer">All Campuses</a> tab to find Campus IDs.
+            </p>
+            <br/>
+
             <label style={{ color: '#11153e', fontWeight: 'bold' }}>Email: </label>
             <input type="email" name="email" onChange={(e) => handleChange(e)} />
             <br />
