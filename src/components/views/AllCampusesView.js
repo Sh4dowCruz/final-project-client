@@ -61,7 +61,7 @@ const AllCampusesView = (props) => {
       ))}
 
       <div style={{ textAlign: "center", marginTop: "30px" }}>
-        <Link to="/">
+        <Link to="/newcampus">
           <button>Add New Campus</button>
         </Link>
       </div>
