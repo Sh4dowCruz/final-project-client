@@ -39,7 +39,12 @@ const CampusView = (props) => {
             padding: "10px 20px",
             marginRight: "15px",
             fontSize: "14px",
-            border: "1px solid black",
+            backgroundColor: "#f4f4f4",
+            color: "#111",
+            border: "1px solid #444",
+            borderRadius: "6px",
+            boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
+            cursor: "pointer",
           }}
         >
           Edit Campus Information
@@ -52,7 +57,10 @@ const CampusView = (props) => {
             fontSize: "14px",
             backgroundColor: "#444",
             color: "white",
-            border: "none",
+            border: "1px solid #444",
+            borderRadius: "6px",
+            boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
+            cursor: "pointer",
           }}
         >
           Delete Campus
@@ -63,7 +71,9 @@ const CampusView = (props) => {
         <p>There are no students enrolled currently.</p>
       ) : (
         <div>
-          <h3>Students Enrolled:</h3>
+          <h2 style={{ fontWeight: "bold", fontSize: "24px" }}>
+            Students Enrolled: {campus.students?.length || 0}
+          </h2>
           <table style={{ margin: "0 auto", borderCollapse: "collapse" }}>
             <thead>
               <tr>
@@ -81,11 +91,13 @@ const CampusView = (props) => {
                     <button
                       onClick={() => unenrollStudent(student.id)}
                       style={{
-                        backgroundColor: "#ccc",
-                        padding: "6px 10px",
-                        borderRadius: "6px",
+                        backgroundColor: "#999",
+                        padding: "10px 20px",
+                        marginLeft: "15px",
+                        borderRadius: "8px",
+                        border: "2px solid black",
                         fontWeight: "bold",
-                        cursor: "pointer"
+                        cursor: "pointer",
                       }}
                     >
                       Unenroll
@@ -99,19 +111,20 @@ const CampusView = (props) => {
       )}
 
       <div style={{ textAlign: "center", marginTop: "20px" }}>
-        <Link to="/newstudent">
-          <button
-            style={{
-              backgroundColor: "#ddd",
-              fontWeight: "bold",
-              padding: "10px 20px",
-              borderRadius: "6px",
-              cursor: "pointer"
-            }}
-          >
-            Enroll New Student
-          </button>
-        </Link>
+        <button
+          onClick={() => (window.location.href = `/newstudent`)}
+          style={{
+            backgroundColor: "#ccc",
+            padding: "15px 30px",
+            marginTop: "30px",
+            borderRadius: "10px",
+            fontWeight: "bold",
+            fontSize: "18px",
+            cursor: "pointer",
+          }}
+        >
+          Enroll New Student
+        </button>
       </div>
     </div>
   );
