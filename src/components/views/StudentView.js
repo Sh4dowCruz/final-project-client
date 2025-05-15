@@ -30,10 +30,30 @@ const StudentView = (props) => {
         <p><strong>Attends:</strong> Not enrolled in any campus</p>
     )}
 
-      <button onClick={() => window.location.href = `/editstudent/${student.id}`}>
+      <button onClick={() => window.location.href = `/editstudent/${student.id}`}
+        style={{
+      padding: "10px 20px",
+      marginRight: "15px",
+      fontSize: "14px",
+      backgroundColor: "#eee",
+      border: "1px solid black",
+      borderRadius: "6px",
+      cursor: "pointer",
+    }}
+      >
         Edit Student Information
       </button>
-      <button onClick={() => props.deleteStudent(student.id)}>
+      <button onClick={() => props.deleteStudent(student.id)}
+        style={{
+          padding: "10px 20px",
+          fontSize: "14px",
+          backgroundColor: "#444",
+          color: "white",
+          border: "1px solid #444",
+          borderRadius: "6px",
+          cursor: "pointer",
+        }}
+      >
         Delete Student
       </button>
     </div>
