@@ -24,7 +24,11 @@ const StudentView = (props) => {
       <p><strong>Email:</strong> {student.email}</p>
       <p><strong>GPA:</strong> {student.gpa}</p>
       <p><strong>Attends:</strong></p>
-      <p><strong><a href={`/campus/${student.campus.id}`}>{student.campus.name}</a></strong></p>
+      {student.campus ? (
+        <p><strong>Attends: <a href={`/campus/${student.campus.id}`}>{student.campus.name}</a></strong></p>
+      ) : (
+        <p><strong>Attends:</strong> Not enrolled in any campus</p>
+    )}
 
       <button onClick={() => window.location.href = `/editstudent/${student.id}`}>
         Edit Student Information
